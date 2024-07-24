@@ -14,13 +14,13 @@ const header = ({ back }) => {
 
   return (
     <View className="bg-[#fff] relative w-full flex flex-row justify-center items-start h-28 border-b-[1px] border-slate-200">
-      {back && 
-            <View className="flex absolute left-0 w-full flex-row justify-start items-center p-6 gap-2">
-            <TouchableOpacity onPress={goback}>
-              <MaterialIcons name="arrow-back" size={26} color="gray" />
-            </TouchableOpacity>
-          </View>
-      }
+      {back && (
+        <View className="flex absolute left-0 w-full flex-row justify-start items-center p-6 gap-2">
+          <TouchableOpacity onPress={goback}>
+            <MaterialIcons name="arrow-back" size={26} color="gray" />
+          </TouchableOpacity>
+        </View>
+      )}
 
       <View className=" flex flex-row justify-center items-center p-4">
         <Image
@@ -32,7 +32,9 @@ const header = ({ back }) => {
       </View>
       <View className="flex absolute right-0 w-full flex-row justify-end items-center p-6 gap-2">
         {/* <MaterialIcons name="notifications" size={22} color="gray" /> */}
-        <MaterialIcons name="menu" size={26} color="gray" />
+        <TouchableOpacity onPress={() => navigation.navigate("(settings)")}>
+          <MaterialIcons name="menu" size={26} color="gray" />
+        </TouchableOpacity>
       </View>
     </View>
   );

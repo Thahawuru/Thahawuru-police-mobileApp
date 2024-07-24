@@ -1,0 +1,17 @@
+{
+    "welcome": "Welcome",
+    "go": "Go",
+    "back": "Back",
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "authorize": "Authorize",
+    "nic": "NIC",
+    "securitykey": "Security Key",
+    "re-pass":"Re-enter Password",
+    "forgot-pass":"Forgot Password",
+    "reset-pass":"Reset Password",
+    "otp":"OTP code"
+  }
+  

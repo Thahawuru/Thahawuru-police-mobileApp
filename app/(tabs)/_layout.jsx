@@ -2,7 +2,7 @@ import { View, Text, StatusBar, Image } from "react-native";
 import React from "react";
 import { Tabs, Redirect } from "expo-router";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {icons} from "../../constants";
+import { icons } from "../../constants";
 // import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 // import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 // import { faQrcode } from "@fortawesome/free-solid-svg-icons/faQrcode";
@@ -15,13 +15,13 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
       style={customStyle?.container}
     >
       <View style={customStyle?.containerIcon}>
-        {(name === "fuigitivePersons" || name === "fuigitiveVehicles") ? (
-          <View className= "items-center justify-center">
+        {name === "fuigitivePersons" || name === "fuigitiveVehicles" ? (
+          <View className="items-center justify-center">
             <Image
-                source = {icon}
-                resizeMode = "contain"
-                // tintColor={color}
-                className= "w-8 h-8"
+              source={icon}
+              resizeMode="contain"
+              // tintColor={color}
+              className="w-8 h-8"
             />
             {/* <Text className={`${focused ? 'font-psemibold' : 'font-pregular'}`} 
               
@@ -29,14 +29,15 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
                 {name}
             </Text> */}
           </View>
-        ): (
-        <MaterialIcons
-          name={icon}
-          color={focused ? "#003566" : name === "Scan" ? "white" : "grey"}
-          className="W-20 h-20"
-          size={customStyle?.icon.size || 25}
-          style={customStyle?.icon}
-        ></MaterialIcons> )}
+        ) : (
+          <MaterialIcons
+            name={icon}
+            color={focused ? "#003566" : name === "Scan" ? "white" : "grey"}
+            className="W-20 h-20"
+            size={customStyle?.icon.size || 25}
+            style={customStyle?.icon}
+          ></MaterialIcons>
+        )}
       </View>
       {name === "Scan" && (
         <Text
@@ -175,6 +176,15 @@ const TabsLayout = () => {
           options={{
             title: "Scan",
             headerShown: false,
+            href: null,
+            presentation: "modal",
+          }}
+        />
+        <Tabs.Screen
+          name="(settings)"
+          options={{
+            title: "Settings",
+            headerShown: true,
             href: null,
             presentation: "modal",
           }}

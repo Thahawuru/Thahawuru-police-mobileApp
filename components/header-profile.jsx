@@ -31,7 +31,9 @@ const header = ({ title, back }) => {
         </View>
       )}
       <View className="flex absolute right-0 w-full flex-row justify-end items-center p-6 gap-2">
-        <MaterialIcons name="menu" size={26} color="gray" />
+        <TouchableOpacity onPress={() => navigation.navigate("(settings)")}>
+          <MaterialIcons name="menu" size={26} color="gray" />
+        </TouchableOpacity>
       </View>
     </View>
   );

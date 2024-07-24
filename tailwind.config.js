@@ -4,10 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        SpaceMono: [ "monospace"],
-      }
+        SpaceMono: ["monospace"],
+      },
+      colors: {
+        "primary-blue": "#010177df", // Example default color
+      },
     },
   },
   plugins: [],
-}
-
+};

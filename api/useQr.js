@@ -1,24 +1,17 @@
 import axios from "axios";
+import apiClient from "./apiClient";
 
-const API_URL = "http://192.168.8.157:5000/api/v1";
+const API_URL = "http://10.21.134.133:5000/api/v1";
 
-export const useAuthentication = () => {
-  const signup = async (data) => {
+export const useQr = () => {
+  const getQrDetails = async (data) => {
     try {
-      const response = await axios({
-        method: "post",
-        url: `${API_URL}/auth/register`,
-        data: {
-          email: data.email,
-          password: data.password,
-          otp: data.otp,
-          nic: data.nic,
-        },
-        withCredentials: true,
-      });
+      const response = await apiClient.get(`/qr/${data}`);
 
+      console.log(response);
       return response;
     } catch (error) {
+      console.log(error);
       throw new Error(error.response.data.error.message);
     }
   };
@@ -47,17 +40,15 @@ export const useAuthentication = () => {
         },
         withCredentials: true,
       });
-      console.log(response);
       return response;
     } catch (error) {
-      console.log(error);
       throw new Error(error.response.data.error.message);
     }
   };
 
   return {
     signin,
-    signup,
+    getQrDetails,
     authorize,
   };
 };

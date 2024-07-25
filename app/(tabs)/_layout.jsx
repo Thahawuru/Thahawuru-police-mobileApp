@@ -172,19 +172,19 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="scandetails"
+          name="(settings)"
           options={{
-            title: "Scan",
-            headerShown: false,
+            title: "Settings",
+            headerShown: true,
             href: null,
             presentation: "modal",
           }}
         />
         <Tabs.Screen
-          name="(settings)"
+          name="scanview/[id]"
           options={{
-            title: "Settings",
-            headerShown: true,
+            title: "scanndetails",
+            headerShown: false,
             href: null,
             presentation: "modal",
           }}

@@ -14,6 +14,7 @@ const logout = () => {
       // await logout()
       dispatch({ type: "LOGOUT" });
       AsyncStorage.removeItem("user");
+      AsyncStorage.removeItem("token");
       //   router.push("(auth)");
     } catch (e) {
       console.log(e);

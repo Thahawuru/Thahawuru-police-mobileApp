@@ -33,6 +33,7 @@ const signinform = () => {
         alert("Login Successfull");
         dispatch({ type: "LOGIN", payload: response.data.data.user });
         AsyncStorage.setItem("user", JSON.stringify(response.data.data.user));
+        AsyncStorage.setItem("token", JSON.stringify(response.data.data.token));
         router.push("/home");
       }
     } catch (error) {

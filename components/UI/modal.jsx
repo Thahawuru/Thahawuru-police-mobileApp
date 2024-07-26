@@ -10,8 +10,17 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import img from "../../assets/images/verified.png";
+import errorimg from "../../assets/images/error.jpg";
 
-const CustomModal = ({ visible, verified, onClose, onAction, title }) => {
+const CustomModal = ({
+  visible,
+  verified,
+  onClose,
+  onAction,
+  title,
+  loading,
+  error,
+}) => {
   return (
     <Modal
       animationType="slide"
@@ -24,9 +33,26 @@ const CustomModal = ({ visible, verified, onClose, onAction, title }) => {
       <TouchableWithoutFeedback onPress={onClose}>
         <View className="flex flex-1 justify-center items-center">
           <View style={styles.modalView}>
-            {verified && (
+            {!loading && !error && verified && (
               <Image
                 source={img}
+                resizeMode="contain"
+                className="h-24 w-24 rounded-3xl"
+              ></Image>
+            )}
+            {loading && !error && (
+              // <Image
+              //   source={img}
+              //   resizeMode="contain"
+              //   className="h-24 w-24 rounded-3xl"
+              // ></Image>
+              <View>
+                <Text>Loading...</Text>
+              </View>
+            )}
+            {error && (
+              <Image
+                source={errorimg}
                 resizeMode="contain"
                 className="h-24 w-24 rounded-3xl"
               ></Image>

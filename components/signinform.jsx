@@ -6,16 +6,17 @@ import { router } from "expo-router";
 import { useState } from "react";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import { useAuthentication } from "@/api/useAuthentication";
-import { useTranslation } from "react-i18next";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useTranslation } from "react-i18next";
 
 const signinform = () => {
+  const { t } = useTranslation();
+  
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const { dispatch } = useAuthContext();
 
   const { signin } = useAuthentication();
-  const { t } = useTranslation();
 
   const handlePasswordChange = (value) => {
     setPassword(value);

@@ -22,13 +22,13 @@ const nicCard = ({nic}) => {
 
             {show && (
               <View>
-                <Tag title="NIC"> {nic.nic}</Tag>
+                <Tag title="NIC"> {nic.identityNumber}</Tag>
                 <Tag title="Name"> {nic.name}</Tag>
-                <Tag title="Email"> {nic.email}</Tag>
-                <Tag title="Sex"> {nic.sex}</Tag>
+                {/* <Tag title="Email"> {nic.email}</Tag>
+                <Tag title="Sex"> {nic.sex}</Tag> */}
                 <Tag title="Date of Birth"> {nic.dob}</Tag>
-                <Tag title="Address"> {nic.address}</Tag>
-                <Tag title="Place of Birth"> {nic.pob}</Tag>
+                <Tag title="Address"> {nic.livingAddress}</Tag>
+                <Tag title="Place of Birth"> {nic.birthPlace}</Tag>
                 <Tag title="Date of Issue"> {nic.doi}</Tag>
               </View>
             )}

@@ -6,10 +6,10 @@ import userphoto from "../../assets/images/userphoto.jpg";
 import Tag from "../itemTag";
 import { Ionicons } from "@expo/vector-icons";
 
-const passportCard = () => {
+const passportCard = ({licence}) => {
   const { getDrivingLicence } = useCards();
   const [show, setShow] = useState(false);
-  const license = getDrivingLicence();
+
 
   return (
     <Card color={"#fff"}>
@@ -19,7 +19,7 @@ const passportCard = () => {
             <Text className="text-lg font-semibold">Driving Licence</Text>
             {!show && (
               <Text className="text-md font-semibold">
-                Licence No : {license.no}
+                Licence No : {licence?.no}
               </Text>
             )}
             {!show && (
@@ -28,20 +28,21 @@ const passportCard = () => {
 
             {show && (
               <View>
-                <Tag title="No"> {license.no}</Tag>
-                <Tag title="Name"> {license.name}</Tag>
-                <Tag title="Date of Birth"> {license.dob}</Tag>
-                <Tag title="Date of Issue"> {license.doi}</Tag>
-                <Tag title="Date of Expiary"> {license.doe}</Tag>
-                <Tag title="Blood Group"> {license.bloodGroup}</Tag>
-                {license.restrictions && (
+                <Tag title="No"> {licence?.licenseNumber}</Tag>
+                <Tag title="Name"> {licence?.name}</Tag>
+                <Tag title="LivingAddress"> {licence?.livingAddress}</Tag>
+                {/* <Tag title="Date of Birth"> {license.dob}</Tag> */}
+                {/* <Tag title="Date of Issue"> {license.doi}</Tag> */}
+                {/* <Tag title="Date of Expiary"> {license.doe}</Tag> */}
+                <Tag title="Blood Group"> {licence?.blood_grLocalDate}</Tag>
+                {licence.restrictions && (
                   <Tag title="Restrictions">
                     <Ionicons size={24} name="glasses-outline"></Ionicons>
                   </Tag>
                 )}
                 <Tag title="Vehicle Categories">
                   {" "}
-                  {license.categories.join(", ")}
+                  {licence?.categories?.join(", ")}
                 </Tag>
               </View>
             )}

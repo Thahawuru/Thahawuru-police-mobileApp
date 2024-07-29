@@ -6,6 +6,7 @@ import CustomButton from "../../components/UI/customButton";
 import CustomModal from "../../components/UI/modal";
 import { router } from "expo-router";
 import { useQr } from "@/api/useQr";
+import {useScanContext} from "@/hooks/useScanContext";
 
 export default function App() {
   const { getQrDetails } = useQr();
@@ -17,6 +18,10 @@ export default function App() {
   const [verified, setVerified] = useState(false);
   const [isloading, setIsloading] = useState(false);
   const [iserror, setIserror] = useState(false);
+
+  const {data,dispatch} = useScanContext();
+
+  
 
   useEffect(() => {
     const getCameraPermissions = async () => {
@@ -32,7 +37,7 @@ export default function App() {
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     if (data) {
       setModalVisible(true);
-      setScannedData(`Getting Data!`);
+      setScannedData(`Verifing User!`);
       setIsloading(true);
       try {
         const response = await getQrDetails(data);
@@ -43,6 +48,7 @@ export default function App() {
           setIserror(false);
           setVerified(true);
           setScannedToken(data);
+          dispatch({type:"SCAN",payload:response.data.data.details});
         }else{
 
           setIserror(true);

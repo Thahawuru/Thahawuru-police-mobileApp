@@ -6,8 +6,8 @@ import ProfileCard from "../../components/profileCard";
 import QRCard from "../../components/qrCard";
 import Tiles from "../../components/tiles";
 
-
 const home = () => {
+
   return (
     <SafeAreaView>
       <ScrollView>

@@ -3,19 +3,28 @@ import { Link } from "expo-router";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import Card from "../components/UI/customCard";
+import { useTranslation } from "react-i18next";
 
 const tiles = () => {
+const {t}=useTranslation();
+
   return (
     <View className="w-full  flex justify-around flex-row items-center">
-      <Tile title="Wallet" icon="wallet" color="orange" href="/profile"></Tile>
       <Tile
-        title="Contact"
+      title={t("wallet")}
+      icon="wallet" 
+      color="orange" 
+      href="/profile"
+
+      ></Tile>
+      <Tile
+        title={t("contact")}
         icon="contact-support"
         color="green"
         href="/home"
       ></Tile>
       <Tile
-        title="Settings"
+        title={t("Settings")}
         icon="settings"
         color="silver"
         href="/home"

@@ -38,7 +38,7 @@ const LanguageSwitcher = () => {
       {language === "en" && (
         <TouchableOpacity
           className="bg-slate-200 flex justify-center items-center h-9 w-16  rounded-sm "
-          title="සිංහල"
+          title="English"
           onPress={() => switchLanguage("si")}
         >
           <Text className="text-slate-500">සිංහල</Text>
@@ -47,7 +47,7 @@ const LanguageSwitcher = () => {
       {language === "si" && (
         <TouchableOpacity
           className="bg-slate-200 flex justify-center items-center h-9 w-16  rounded-sm "
-          title="English"
+          title="සිංහල"
           onPress={() => switchLanguage("en")}
         >
           <Text className="text-slate-500">English</Text>

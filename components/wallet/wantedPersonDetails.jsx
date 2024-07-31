@@ -4,8 +4,10 @@ import Card from "../UI/customCard";
 import userphoto from "../../assets/images/userphoto.jpg";
 import { MaterialIcons } from "@expo/vector-icons";
 import Tag from "../itemTag";
+import { useTranslation } from "react-i18next";
 
 const WantedPersonDetails = ({personDetails}) => {
+  const {t} =useTranslation();
   const [show, setShow] = useState(false);
 
 
@@ -15,20 +17,20 @@ const WantedPersonDetails = ({personDetails}) => {
         <View className="flex flex-row justify-between items-center gap-1 w-full">
           <View className="flex-[3_1_0%] flex justify-start items-start">
             <Text className="text-lg font-semibold">
-              Wanted Person Details
+              {t("wantedPeopleDetails")}
             </Text>
-            {!show  && <Text className="text-md font-semibold">Name : {personDetails.name}</Text>}
-            {!show  && <Text className="text-xs font-thin">Tap to view details</Text>}
+            {!show  && <Text className="text-md font-semibold">{t("name")}: {personDetails.name}</Text>}
+            {!show  && <Text className="text-xs font-thin">{t("details")} </Text>}
 
             {show && (
               <View>
-                <Tag title="NIC"> {personDetails.no}</Tag>
-                <Tag title="Name"> {personDetails.name}</Tag>
-                <Tag title="Sex"> {personDetails.sex}</Tag>
-                <Tag title="Date of Birth"> {personDetails.dob}</Tag>
-                <Tag title="Address"> {personDetails.address}</Tag>
-                <Tag title="Place of Birth"> {personDetails.pob}</Tag>
-                <Tag title="Date of Issue"> {personDetails.doi}</Tag>
+                <Tag title={t("nic2")}> {personDetails.no}</Tag>
+                <Tag title={t("name")}> {personDetails.name}</Tag>
+                <Tag title={t("sex")}> {personDetails.sex}</Tag>
+                <Tag title={t("DOB")}> {personDetails.dob}</Tag>
+                <Tag title={t("address")}> {personDetails.address}</Tag>
+                <Tag title={t("placeOfBirth")}> {personDetails.pob}</Tag>
+                <Tag title={t("DOI")}> {personDetails.doi}</Tag>
               </View>
             )}
           </View>

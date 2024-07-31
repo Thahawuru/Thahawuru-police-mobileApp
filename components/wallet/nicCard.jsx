@@ -4,8 +4,10 @@ import Card from "../UI/customCard";
 import userphoto from "../../assets/images/userphoto.jpg";
 import { MaterialIcons } from "@expo/vector-icons";
 import Tag from "../itemTag";
+import { useTranslation } from "react-i18next";
 
 const nicCard = ({nic}) => {
+  const {t} =useTranslation();
   const [show, setShow] = useState(false);
 
 
@@ -15,18 +17,18 @@ const nicCard = ({nic}) => {
         <View className="flex flex-row justify-between items-center gap-1 w-full">
           <View className="flex-[3_1_0%] flex justify-start items-start">
             <Text className="text-lg font-semibold">
-              National Identity Card
+              {t("NIC")}
             </Text>
-            {!show  && <Text className="text-md font-semibold">NIC : {nic.no}</Text>}
-            {!show  && <Text className="text-xs font-thin">Tap to view details</Text>}
+            {!show  && <Text className="text-md font-semibold">{t("nic")}{nic.no}</Text>}
+            {!show  && <Text className="text-xs font-thin">{t("details")}</Text>}
 
             {show && (
               <View>
-                <Tag title="NIC"> {nic.identityNumber}</Tag>
-                <Tag title="Name"> {nic.name}</Tag>
+                <Tag title={t("nic2")}> {nic.identityNumber}</Tag>
+                <Tag title={t("name")}> {nic.name}</Tag>
                 {/* <Tag title="Email"> {nic.email}</Tag>
                 <Tag title="Sex"> {nic.sex}</Tag> */}
-                <Tag title="Date of Birth"> {nic.dob}</Tag>
+                <Tag title={t("DOB")}> {nic.dob}</Tag>
                 <Tag title="Address"> {nic.livingAddress}</Tag>
                 <Tag title="Place of Birth"> {nic.birthPlace}</Tag>
                 <Tag title="Date of Issue"> {nic.doi}</Tag>

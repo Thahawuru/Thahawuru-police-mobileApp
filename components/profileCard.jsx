@@ -1,14 +1,16 @@
-import { View, Text, Image } from "react-native";
-import React from "react";
-import Card from "./UI/customCard";
-import userphoto from "../assets/images/userphoto.jpg";
-import { Link } from "expo-router";
-import { MaterialIcons } from "@expo/vector-icons";
+import { View, Text,Image } from 'react-native'
+import React from 'react'
+import Card from './UI/customCard'
+import userphoto from '../assets/images/userphoto.jpg'
+import { Link } from 'expo-router'
+import { MaterialIcons } from '@expo/vector-icons'
 import { useAuthContext } from "@/hooks/useAuthContext";
 import {LinearGradient} from "expo-linear-gradient";
+import { useTranslation } from "react-i18next"
 
 const profileCard = () => {
   const { user } = useAuthContext();
+  const {t} =useTranslation();
   return (
     <LinearGradient
       colors={["#4A249D", "#F2EEFB"]} // Start and end colors of the gradient

@@ -4,8 +4,10 @@ import Card from "../UI/customCard";
 import userphoto from "../../assets/images/userphoto.jpg";
 import { MaterialIcons } from "@expo/vector-icons";
 import Tag from "../itemTag";
+import { useTranslation } from "react-i18next";
 
 const WantedVehicleDetails = ({vehicleDetails}) => {
+  const {t} =useTranslation();
   const [show, setShow] = useState(false);
 
 
@@ -15,10 +17,10 @@ const WantedVehicleDetails = ({vehicleDetails}) => {
         <View className="flex flex-row justify-between items-center gap-1 w-full">
           <View className="flex-[3_1_0%] flex justify-start items-start">
             <Text className="text-lg font-semibold">
-              Officer Details
+              {t("vehicleDetails")}
             </Text>
-            {!show  && <Text className="text-md font-semibold">No : {vehicleDetails.no}</Text>}
-            {!show  && <Text className="text-xs font-thin">Tap to view details</Text>}
+            {!show  && <Text className="text-md font-semibold">{t("Vno")}{vehicleDetails.no}</Text>}
+            {!show  && <Text className="text-xs font-thin">{t("details")}</Text>}
 
             {show && (
               <View>

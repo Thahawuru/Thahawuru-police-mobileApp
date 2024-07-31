@@ -7,7 +7,6 @@ import QRCard from "../../components/qrCard";
 import Tiles from "../../components/tiles";
 
 
-
 const home = () => {
 
   return (

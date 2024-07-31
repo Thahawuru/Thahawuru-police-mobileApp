@@ -7,7 +7,7 @@ const customButton = ({ handelPress, isLoading, title }) => {
       <TouchableOpacity
         onPress={handelPress}
         disabled={isLoading}
-        className="bg-sky-700 p-4 flex justify-center items-center  rounded-lg"
+        className="bg-secondry-blue p-4 flex justify-center items-center  rounded-[150px]"
       >
         <Text className='text-slate-200  capitalize text-xl'>{title}</Text>
       </TouchableOpacity>

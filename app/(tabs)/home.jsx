@@ -2,16 +2,18 @@ import { View, Text, ScrollView ,Image} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/header";
-import ProfileCard from "../../components/profileCard";
+import ProfileCard from "../../components/welcomeCard";
 import QRCard from "../../components/qrCard";
 import Tiles from "../../components/tiles";
 
 
+
 const home = () => {
+
   return (
     <SafeAreaView>
-      <ScrollView>
-        <View className="h-full w-screen flex justify-start items-center">
+      {/* <ScrollView> */}
+        <View className="h-full w-screen flex justify-start items-center  min-h-screen bg-[#F2EEFB]">
           <View className="w-full">
             <Header></Header>
           </View>
@@ -25,7 +27,7 @@ const home = () => {
             <Tiles></Tiles>
           </View>
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };

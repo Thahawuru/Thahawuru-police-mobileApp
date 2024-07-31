@@ -23,9 +23,11 @@ const index = () => {
   }, [loading, segments, isAuthenticated, navigationState?.key]);
 
   return (
+  <>
     <View className="flex justify-center items-center w-screen h-screen">
-      <Image source={image} className="h-[100px] w-[100px]"></Image>
+      <Image source={image} className="h-[100px] w-[100px]" ></Image>
     </View>
+  </>
   );
 };
 

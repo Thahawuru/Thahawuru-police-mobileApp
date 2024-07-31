@@ -3,6 +3,7 @@ import React from 'react'
 
 const customCard = ({children,color}) => {
 
+  console.log(color)
   return (
     <View className={`p-5 w-full rounded-2xl`} style={[styles.card,{backgroundColor:color}]} >
       {children}

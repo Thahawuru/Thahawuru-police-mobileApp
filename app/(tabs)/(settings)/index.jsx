@@ -6,19 +6,19 @@ import Logout from "@/components/logout";
 
 const index = () => {
   return (
-    <SafeAreaView>
+    // <SafeAreaView>
       <ScrollView>
-        <View className="p-2 mx-1 bg-white flex-col gap-4 justify-evenly   ">
-          <View className="flex my-1 flex-row justify-between">
+        <View className="p-2 mx-1 bg-white flex-col  justify-evenly   ">
+          <View className="flex my-1 border-b-[0.5px] py-2 border-slate-300 flex-row justify-between">
             <Text className="text-md   font-bold">Language</Text>
             <LanguageSwitcher></LanguageSwitcher>
           </View>
-          <View className="flex my-1 flex-row justify-between">
+          <View className="flex my-1 border-b-[0.5px] py-2 border-slate-300 flex-row justify-between">
             <Logout></Logout>
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 };
 

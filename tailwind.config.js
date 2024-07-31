@@ -7,7 +7,9 @@ module.exports = {
         SpaceMono: ["monospace"],
       },
       colors: {
-        "primary-blue": "#010177df", // Example default color
+        "primary-blue": "#010177df",
+        "secondry-blue":"#4A249D",
+        "secondry-2" :"#F2EEFB" 
       },
     },
   },

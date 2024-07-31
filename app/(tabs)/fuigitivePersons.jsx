@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../../components/header-profile";
 import WantedPersonDetails from "../../components/wallet/wantedPersonDetails";
 import { wantedPersons } from "../../api/wantedPersons";
+import Formfield from "../../components/formfield";
 
 
 const profile = () => {
@@ -18,6 +19,10 @@ const profile = () => {
           <View className="w-full">
             <Header title={"Wanted Persons"}></Header>
           </View>
+          <View className="w-[90%] ">
+            <Formfield label={"search"} placeholder={"search wanted persons"} styles={{container:"h-[45px] "}}></Formfield>
+          </View>
+          
           <View className='w-[90%]'>
             <WantedPersonDetails personDetails={PersonList}></WantedPersonDetails>
           </View>

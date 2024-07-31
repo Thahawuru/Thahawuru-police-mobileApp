@@ -7,11 +7,11 @@ import Passport from "../../components/wallet/passportCard";
 import DrivingLicence from "../../components/wallet/drivingLicenceCard";
 import OfficerDetails from "../../components/wallet/officerDetails";
 import { useCards } from "../../api/useCards";
-
+import ProfileCard from "../../components/profileCard";
 
 const profile = () => {
-
-  const { getNIC ,getDrivingLicence,getPassport,getOfficerDetails} = useCards();
+  const { getNIC, getDrivingLicence, getPassport, getOfficerDetails } =
+    useCards();
 
   const nic = getNIC();
   const licence = getDrivingLicence();
@@ -20,13 +20,18 @@ const profile = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View className="h-full min-h-screen w-screen  bg-[#fff] flex justify-start items-center gap-y-4">
+        <View className="h-full min-h-screen w-screen  bg-[#F2EEFB] flex justify-start items-center gap-y-4">
           <View className="w-full">
-            <Header title={"Your Wallet"}></Header>
+            <Header back={true} styles={{container:"bg-secondry-blue border-secondry-blue"}}></Header>
           </View>
-          <View className='w-[90%]'>
+
+          <ProfileCard></ProfileCard>
+
+          <View className='w-[90%] mt-[-10px]'>
             <OfficerDetails officerDetails={officerDetails}></OfficerDetails>
           </View>
+          {/* 
+          
           <View className='w-[90%]'>
             <NIC nic={nic}></NIC>
           </View>
@@ -35,7 +40,7 @@ const profile = () => {
           </View>
           <View className='w-[90%] '>
            <Passport passport={passport}></Passport>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     </SafeAreaView>

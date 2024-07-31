@@ -9,6 +9,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons/faSquareCheck";
 import { I18nextProvider } from "react-i18next";
 import { AuthProvider } from "../context/authContext";
+import { ToastProvider } from "../context/toastContext";
 import { ScanProvider } from "../context/scanContext";
 import i18n from "../i18n";
 
@@ -35,16 +36,18 @@ export default function RootLayout() {
   return (
     <>
       <AuthProvider>
-        <ScanProvider>
-          <I18nextProvider i18n={i18n}>
-            <Stack screenOptions={{ headerShown: false }}>
-              <Stack.Screen
-                name="index"
-                options={{ headerShown: false }}
-              ></Stack.Screen>
-            </Stack>
-          </I18nextProvider>
-        </ScanProvider>
+        <ToastProvider>
+          <ScanProvider>
+            <I18nextProvider i18n={i18n}>
+              <Stack screenOptions={{ headerShown: false }}>
+                <Stack.Screen
+                  name="index"
+                  options={{ headerShown: false }}
+                ></Stack.Screen>
+              </Stack>
+            </I18nextProvider>
+          </ScanProvider>
+        </ToastProvider>
       </AuthProvider>
     </>
   );

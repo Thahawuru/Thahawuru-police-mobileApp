@@ -17,7 +17,7 @@ const officerDetails = ({officerDetails}) => {
             <Text className="text-lg font-semibold">
               Officer Details
             </Text>
-            {!show  && <Text className="text-md font-semibold">Name : {officerDetails.name}</Text>}
+            {/* {!show  && <Text className="text-md font-semibold">Name : {officerDetails.name}</Text>} */}
             {!show  && <Text className="text-xs font-thin">Tap to view details</Text>}
 
             {show && (
@@ -31,12 +31,12 @@ const officerDetails = ({officerDetails}) => {
             )}
           </View>
           <View className="relative flex-1 w-full flex items-end justify-end">
-            <Image
+            {/* <Image
               source={userphoto}
               resizeMode="contain"
               className="h-20 w-20"
               style={{ borderRadius: 20 }}
-            />
+            /> */}
             <View
               className=" w-5
             h-5 "

@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/formfield.jsx", "components/signinform.jsx"  ]
+, "components/formfield.jsx", "components/signinform.jsx", "components/UI/toaster.jsx"  ]
 }

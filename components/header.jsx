@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import tahauru from "../assets/images/tahauru-key.png";
 import logo from "../assets/images/tahauru-logo.png";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons,MaterialCommunityIcons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 
 const header = ({ back }) => {
@@ -33,7 +33,7 @@ const header = ({ back }) => {
       <View className="flex absolute right-0 w-full flex-row justify-end items-center p-6 gap-2">
         {/* <MaterialIcons name="notifications" size={22} color="gray" /> */}
         <TouchableOpacity onPress={() => navigation.navigate("(settings)")}>
-          <MaterialIcons name="menu" size={26} color="gray" />
+          <MaterialCommunityIcons name="menu" size={26} color="gray" />
         </TouchableOpacity>
       </View>
     </View>

@@ -6,7 +6,7 @@ import { icons } from "../../constants";
 // import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 // import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 // import { faQrcode } from "@fortawesome/free-solid-svg-icons/faQrcode";
-import { MaterialIcons, AntDesign } from "@expo/vector-icons";
+import { MaterialIcons,MaterialCommunityIcons, AntDesign, Entypo } from "@expo/vector-icons";
 
 const TabIcon = ({ icon, name, focused, customStyle }) => {
   return (
@@ -15,7 +15,7 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
       style={customStyle?.container}
     >
       <View style={customStyle?.containerIcon}>
-        {name === "fuigitivePersons" || name === "fuigitiveVehicles" ? (
+        {name === "fuigitivePersonss" || name === "fuigitiveVehicless" ? (
           <View className="items-center justify-center">
             <Image
               source={icon}
@@ -30,13 +30,17 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
             </Text> */}
           </View>
         ) : (
-          <MaterialIcons
-            name={icon}
-            color={focused ? "#003566" : name === "Scan" ? "white" : "grey"}
-            className="W-20 h-20"
-            size={customStyle?.icon.size || 25}
-            style={customStyle?.icon}
-          ></MaterialIcons>
+          <>
+            {/* <MaterialIcons
+              name={icon}
+              color={focused ? "#4A249D" : name === "Scan" ? "white" : "grey"}
+              className="W-20 h-20"
+              size={customStyle?.icon.size || 25}
+              style={customStyle?.icon}
+            ></MaterialIcons> */}
+           <MaterialCommunityIcons name={icon} color={focused ? "#4A249D" : name === "Scan" ? "white" : "grey"}  className="W-20 h-20"        size={customStyle?.icon.size || 25}
+              style={customStyle?.icon} />
+          </>
         )}
       </View>
       {name === "Scan" && (
@@ -58,9 +62,10 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
+          backgroundColor: "#F2EEFB",
           tabBarStyle: {
             backgroundColor: "#FFF",
-            height: 55,
+            height: 65,
           },
         }}
       >
@@ -70,7 +75,7 @@ const TabsLayout = () => {
             title: "Home",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon icon={"home-filled"} focused={focused} name={"Home"} />
+              <TabIcon icon={"home"} focused={focused} name={"Home"} />
             ),
           }}
         />
@@ -81,7 +86,7 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.FugPeople}
+                icon={"account-search"}
                 focused={focused}
                 name={"fuigitivePersons"}
               />
@@ -95,12 +100,12 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={"qr-code"}
+                icon={"qrcode"}
                 focused={focused}
                 name={"Scan"}
                 customStyle={{
                   containerIcon: {
-                    backgroundColor: focused ? "#001d3d" : "#003566",
+                    backgroundColor: focused ? "#001d3d" : "#4A249D",
                     // transform: [{ translateY: -15 }],
                     borderRadius: 55,
                     // borderWidth: 2,
@@ -141,7 +146,7 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.FugVehicle}
+                icon={"car"}
                 focused={focused}
                 name={"fuigitiveVehicles"}
               />
@@ -155,7 +160,7 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={"person-outline"}
+                icon={"account"}
                 focused={focused}
                 name={"Profile"}
               />

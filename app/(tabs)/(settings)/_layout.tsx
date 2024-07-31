@@ -5,7 +5,7 @@ export default function Layout() {
     <Stack
       screenOptions={{
         headerShown: true,
-        contentStyle: { backgroundColor: "#F2EEFB" },
+        contentStyle: { backgroundColor: "#EBF5FF" },
       }}
     >
       <Stack.Screen

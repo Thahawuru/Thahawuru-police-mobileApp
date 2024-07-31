@@ -38,7 +38,7 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
               size={customStyle?.icon.size || 25}
               style={customStyle?.icon}
             ></MaterialIcons> */}
-           <MaterialCommunityIcons name={icon} color={focused ? "#4A249D" : name === "Scan" ? "white" : "grey"}  className="W-20 h-20"        size={customStyle?.icon.size || 25}
+           <MaterialCommunityIcons name={icon} color={focused ? "#0F0D4B" : name === "Scan" ? "white" : "grey"}  className="W-20 h-20"        size={customStyle?.icon.size || 25}
               style={customStyle?.icon} />
           </>
         )}
@@ -105,7 +105,7 @@ const TabsLayout = () => {
                 name={"Scan"}
                 customStyle={{
                   containerIcon: {
-                    backgroundColor: focused ? "#001d3d" : "#4A249D",
+                    backgroundColor: focused ? "#001d3d" : "#0F0D4B",
                     // transform: [{ translateY: -15 }],
                     borderRadius: 55,
                     // borderWidth: 2,

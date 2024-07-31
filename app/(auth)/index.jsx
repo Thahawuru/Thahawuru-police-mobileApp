@@ -33,7 +33,7 @@ const index = () => {
           <View className="w-full px-8 flex-[0.1]">
             <Link
               href={"/signin"}
-              className="w-full py-4  bg-secondry-blue text-slate-200 flex justify-center text-bold text-xl rounded-[200px] align-center  items-center text-center"
+              className="w-full py-4  bg-secondry-1 text-slate-200 flex justify-center text-bold text-xl rounded-[200px] align-center  items-center text-center"
             >
               {t("go")} {/* Use translation key */}
             </Link>

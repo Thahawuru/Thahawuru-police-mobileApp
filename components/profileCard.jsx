@@ -13,7 +13,7 @@ const profileCard = () => {
   const {t} =useTranslation();
   return (
     <LinearGradient
-      colors={["#4A249D", "#F2EEFB"]} // Start and end colors of the gradient
+      colors={["#0F0D4B", "#EBF5FF"]} // Start and end colors of the gradient
       style={{
         justifyContent: "center",
         alignItems: "center",

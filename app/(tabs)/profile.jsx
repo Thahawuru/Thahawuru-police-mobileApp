@@ -20,9 +20,9 @@ const profile = () => {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View className="h-full min-h-screen w-screen  bg-[#F2EEFB] flex justify-start items-center gap-y-4">
+        <View className="h-full min-h-screen w-screen  bg-secondry-2 flex justify-start items-center gap-y-4">
           <View className="w-full">
-            <Header back={true} styles={{container:"bg-secondry-blue border-secondry-blue"}}></Header>
+            <Header back={true} styles={{container:"bg-secondry-1 border-secondry-1"}}></Header>
           </View>
 
           <ProfileCard></ProfileCard>

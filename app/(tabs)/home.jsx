@@ -12,7 +12,7 @@ const home = () => {
   return (
     <SafeAreaView>
       {/* <ScrollView> */}
-        <View className="h-full w-screen flex justify-start items-center  min-h-screen bg-[#F2EEFB]">
+        <View className="h-full w-screen flex justify-start items-center  min-h-screen bg-secondry-2">
           <View className="w-full">
             <Header></Header>
           </View>

@@ -29,9 +29,9 @@ const nicCard = ({nic}) => {
                 {/* <Tag title="Email"> {nic.email}</Tag>
                 <Tag title="Sex"> {nic.sex}</Tag> */}
                 <Tag title={t("DOB")}> {nic.dob}</Tag>
-                <Tag title="Address"> {nic.livingAddress}</Tag>
-                <Tag title="Place of Birth"> {nic.birthPlace}</Tag>
-                <Tag title="Date of Issue"> {nic.doi}</Tag>
+                <Tag title={t("address")}> {nic.livingAddress}</Tag>
+                <Tag title={t("placeOfBirth")}> {nic.birthPlace}</Tag>
+                <Tag title={t("DOI")}> {nic.doi}</Tag>
               </View>
             )}
           </View>

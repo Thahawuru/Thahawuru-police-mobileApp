@@ -44,6 +44,7 @@
     "vehicleDetails":"Vehicle Details",
     "Vno":"Vehicle No: ",
     "placeOfBirth":"Place Of Birth",
-    "wantedPeopleDetails":"Person details"
+    "wantedPeopleDetails":"Person details",
+    "logout":"Logout"
   }
   

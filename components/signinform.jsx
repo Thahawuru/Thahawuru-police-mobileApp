@@ -35,8 +35,9 @@ const signinform = () => {
     try {
       const response = await signin({ email, password });
       if (response.status === 200) {
-        dispatch({ type: "LOGIN", payload: response.data.data.user });
+        dispatch({ type: "LOGIN", payload: {user:response.data.data.user,police:response.data.data.police} });
         AsyncStorage.setItem("user", JSON.stringify(response.data.data.user));
+        AsyncStorage.setItem("police", JSON.stringify(response.data.data.police));
         AsyncStorage.setItem("token", JSON.stringify(response.data.data.token));
         showToast({
           type: "success",

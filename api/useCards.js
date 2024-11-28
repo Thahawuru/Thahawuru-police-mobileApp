@@ -42,11 +42,11 @@ export const useCards = () => {
   };
   const getOfficerDetails = () => {
     return {
-      name: "sumana pala",
+      name: "Saman Rathnayake",
       station: "Mount Lavinia",
       rank: "Snr.DIG",
       mobile: "011-12332134",
-      email: "din@gmail.com"
+      email: "din@gmail.com",
     };
   };
 
@@ -54,6 +54,6 @@ export const useCards = () => {
     getNIC,
     getPassport,
     getDrivingLicence,
-    getOfficerDetails
+    getOfficerDetails,
   };
 };

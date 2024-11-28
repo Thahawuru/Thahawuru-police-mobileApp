@@ -1,6 +1,6 @@
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-const API_URL = "http://10.22.163.4:6000/api/v1";// Ensure this is the correct path to your config
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+const API_URL = "http://192.168.163.211:8092/api/v1"; // Ensure this is the correct path to your config
 
 // Create an Axios instance
 const apiClient = axios.create({
@@ -11,9 +11,9 @@ const apiClient = axios.create({
 // Add a request interceptor to include the token in headers
 apiClient.interceptors.request.use(
   async (config) => {
-    const token = await AsyncStorage.getItem('token');
+    const token = await AsyncStorage.getItem("token");
     if (token) {
-      config.headers['Authorization'] = `Bearer ${JSON.parse(token)}`;
+      config.headers["Authorization"] = `Bearer ${JSON.parse(token)}`;
     }
     return config;
   },

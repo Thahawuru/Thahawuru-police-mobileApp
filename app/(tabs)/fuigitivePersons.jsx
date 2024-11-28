@@ -6,10 +6,8 @@ import WantedPersonDetails from "../../components/wallet/wantedPersonDetails";
 import { wantedPersons } from "../../api/wantedPersons";
 import Formfield from "../../components/formfield";
 
-
 const profile = () => {
-
-  const { personList} = wantedPersons();
+  const { personList } = wantedPersons();
 
   const PersonList = personList();
   return (
@@ -20,11 +18,17 @@ const profile = () => {
             <Header title={"Wanted Persons"}></Header>
           </View>
           <View className="w-[90%] ">
-            <Formfield label={"search"} placeholder={"search wanted persons"} styles={{container:"h-[45px] "}}></Formfield>
+            <Formfield
+              label={"search"}
+              placeholder={"search wanted persons"}
+              styles={{ container: "h-[45px] " }}
+            ></Formfield>
           </View>
-          
-          <View className='w-[90%]'>
-            <WantedPersonDetails personDetails={PersonList}></WantedPersonDetails>
+
+          <View className="w-[90%] mb-10 flex felx-col gap-2">
+            <WantedPersonDetails
+              personDetails={PersonList}
+            ></WantedPersonDetails>
           </View>
         </View>
       </ScrollView>

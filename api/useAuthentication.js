@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://10.22.163.4:6000/api/v1";
+const API_URL = "http://192.168.163.211:8092/api/v1";
 
 export const useAuthentication = () => {
   const signup = async (data) => {
@@ -37,7 +37,7 @@ export const useAuthentication = () => {
     };
   };
   const signin = async (data) => {
-    console.log("data", data);
+    console.log(data);
     try {
       const response = await axios({
         method: "post",
@@ -51,7 +51,8 @@ export const useAuthentication = () => {
       console.log(response);
       return response;
     } catch (error) {
-      console.log(error);
+      console.log("came here");
+      console.log("error here", error);
       throw new Error(error.response.data.error.message);
     }
   };

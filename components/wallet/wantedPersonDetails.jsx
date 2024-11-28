@@ -1,15 +1,14 @@
 import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
 import { useState } from "react";
 import Card from "../UI/customCard";
-import userphoto from "../../assets/images/userphoto.jpg";
+import userphoto from "../../assets/images/wanted2.jpg";
 import { MaterialIcons } from "@expo/vector-icons";
 import Tag from "../itemTag";
 import { useTranslation } from "react-i18next";
 
-const WantedPersonDetails = ({personDetails}) => {
-  const {t} =useTranslation();
+const WantedPersonDetails = ({ personDetails }) => {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
-
 
   return (
     <Card color={"#fff"}>
@@ -19,8 +18,14 @@ const WantedPersonDetails = ({personDetails}) => {
             <Text className="text-lg font-semibold">
               {t("wantedPeopleDetails")}
             </Text>
-            {!show  && <Text className="text-md font-semibold">{t("name")}: {personDetails.name}</Text>}
-            {!show  && <Text className="text-xs font-thin">{t("details")} </Text>}
+            {!show && (
+              <Text className="text-md font-semibold">
+                {t("name")}: {personDetails.name}
+              </Text>
+            )}
+            {!show && (
+              <Text className="text-xs font-thin">{t("details")} </Text>
+            )}
 
             {show && (
               <View>

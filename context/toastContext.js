@@ -25,13 +25,13 @@ export const ToastProvider = ({ children }) => {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       {/* <View className="border-2 border-red-500 w-screen"> */}
-        <ToastMessage
-          ref={toastRef}
-          type={toastConfig.type}
-          text={toastConfig.text}
-          description={toastConfig.description}
-          timeout={2000}
-        />
+      <ToastMessage
+        ref={toastRef}
+        type={toastConfig.type}
+        text={toastConfig.text}
+        description={toastConfig.description}
+        timeout={2000}
+      />
       {/* </View> */}
     </ToastContext.Provider>
   );

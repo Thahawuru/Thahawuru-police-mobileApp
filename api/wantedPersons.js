@@ -1,3 +1,4 @@
+import apiClient from "./apiClient";
 export const wantedPersons = () => {
   const personList = () => {
     return {
@@ -12,7 +13,17 @@ export const wantedPersons = () => {
       type: "NIC",
     };
   };
+
+  const getList = async (data) => {
+    try {
+      const response = await apiClient.get(`/wantedPerson`);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error.message);
+    }
+  };
   return {
+    getList,
     personList,
   };
 };

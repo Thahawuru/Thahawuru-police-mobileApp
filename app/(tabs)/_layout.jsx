@@ -1,22 +1,27 @@
-import { View, Text, StatusBar, Image } from "react-native";
-import React from "react";
+import { View, Text, StatusBar, Image, Keyboard } from "react-native";
+import { useState, useEffect } from "react";
 import { Tabs, Redirect } from "expo-router";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { icons } from "../../constants";
 // import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
 // import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 // import { faQrcode } from "@fortawesome/free-solid-svg-icons/faQrcode";
-import { MaterialIcons,MaterialCommunityIcons, AntDesign, Entypo } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  MaterialCommunityIcons,
+  AntDesign,
+  Entypo,
+} from "@expo/vector-icons";
 
 const TabIcon = ({ icon, name, focused, customStyle }) => {
   return (
     <View
-      className=" flex justify-center items-center flex-col"
+      className=" flex justify-center items-center flex-col "
       style={customStyle?.container}
     >
       <View style={customStyle?.containerIcon}>
         {name === "fuigitivePersonss" || name === "fuigitiveVehicless" ? (
-          <View className="items-center justify-center">
+          <View className="items-center justify-center ">
             <Image
               source={icon}
               resizeMode="contain"
@@ -38,8 +43,13 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
               size={customStyle?.icon.size || 25}
               style={customStyle?.icon}
             ></MaterialIcons> */}
-           <MaterialCommunityIcons name={icon} color={focused ? "#0F0D4B" : name === "Scan" ? "white" : "grey"}  className="W-20 h-20"        size={customStyle?.icon.size || 25}
-              style={customStyle?.icon} />
+            <MaterialCommunityIcons
+              name={icon}
+              color={focused ? "#0F0D4B" : name === "Scan" ? "white" : "grey"}
+              className="W-20 h-20"
+              size={customStyle?.icon.size || 25}
+              style={customStyle?.icon}
+            />
           </>
         )}
       </View>
@@ -47,9 +57,9 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
         <Text
           className={`${
             focused ? "text-blue-700" : "text-slate-500"
-          } uppercase text-xs`}
+          } uppercase text-xs  w-full pt-1`}
         >
-          {name}
+          {/* {name} */}
         </Text>
       )}
     </View>
@@ -57,6 +67,16 @@ const TabIcon = ({ icon, name, focused, customStyle }) => {
 };
 
 const TabsLayout = () => {
+  const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const keyboardShowListener = Keyboard.addListener("keyboardDidShow", () =>
+      setIsKeyboardVisible(true)
+    );
+    const keyboardHideListener = Keyboard.addListener("keyboardDidHide", () =>
+      setIsKeyboardVisible(false)
+    );
+  });
   return (
     <>
       <Tabs
@@ -65,7 +85,7 @@ const TabsLayout = () => {
           backgroundColor: "#F2EEFB",
           tabBarStyle: {
             backgroundColor: "#FFF",
-            height: 65,
+            height: isKeyboardVisible ? 0 : 65,
           },
         }}
       >
@@ -106,7 +126,7 @@ const TabsLayout = () => {
                 customStyle={{
                   containerIcon: {
                     backgroundColor: focused ? "#001d3d" : "#0F0D4B",
-                    // transform: [{ translateY: -15 }],
+                    // transform: [{ translateY: -5 }],
                     borderRadius: 55,
                     // borderWidth: 2,
                     // borderColor: "red",
@@ -118,7 +138,7 @@ const TabsLayout = () => {
                     alignItems: "center",
                   },
                   container: {
-                    transform: [{ translateY: -22 }],
+                    transform: [{ translateY: isKeyboardVisible ? 30 : -6 }],
                     // borderRadius: 55,
                     // borderWidth: 2,
                     // borderColor: "red",
@@ -142,7 +162,7 @@ const TabsLayout = () => {
         <Tabs.Screen
           name="fuigitiveVehicles"
           options={{
-            title: "Profile",
+            title: "Vehicles",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
@@ -159,11 +179,7 @@ const TabsLayout = () => {
             title: "Profile",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={"account"}
-                focused={focused}
-                name={"Profile"}
-              />
+              <TabIcon icon={"account"} focused={focused} name={"Profile"} />
             ),
           }}
         />
@@ -180,6 +196,24 @@ const TabsLayout = () => {
           name="(settings)"
           options={{
             title: "Settings",
+            headerShown: true,
+            href: null,
+            presentation: "modal",
+          }}
+        />
+        <Tabs.Screen
+          name="searchPersons"
+          options={{
+            title: "Search Wanted Person",
+            headerShown: true,
+            href: null,
+            presentation: "modal",
+          }}
+        />
+        <Tabs.Screen
+          name="searchVehicles"
+          options={{
+            title: "Search Vehicle",
             headerShown: true,
             href: null,
             presentation: "modal",

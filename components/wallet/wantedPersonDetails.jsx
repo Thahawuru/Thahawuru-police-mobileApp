@@ -1,4 +1,10 @@
-import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableWithoutFeedback,
+  ScrollView,
+} from "react-native";
 import { useState } from "react";
 import Card from "../UI/customCard";
 import userphoto from "../../assets/images/wanted2.jpg";
@@ -7,35 +13,61 @@ import Tag from "../itemTag";
 import { useTranslation } from "react-i18next";
 
 const WantedPersonDetails = ({ personDetails }) => {
+  return (
+    <View className="flex w-full h-[71vh] py-1 overflow-hidden flex-col justify-center items-center">
+      <ScrollView className="w-full px-3">
+        {personDetails && personDetails.length > 0 ? (
+          personDetails.map((person, index) => (
+            <Person key={index} personDetails={person}></Person>
+          ))
+        ) : (
+          <Text>No person details available</Text>
+        )}
+      </ScrollView>
+    </View>
+  );
+};
+
+export default WantedPersonDetails;
+
+const Person = ({ personDetails }) => {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
-
   return (
+    // <View className="border-2 border-blue-500">
     <Card color={"#fff"}>
       <TouchableWithoutFeedback onPress={() => setShow((show) => !show)}>
         <View className="flex flex-row justify-between items-center gap-1 w-full">
           <View className="flex-[3_1_0%] flex justify-start items-start">
-            <Text className="text-lg font-semibold">
+            {/* <Text className="text-lg font-semibold">
               {t("wantedPeopleDetails")}
-            </Text>
+            </Text> */}
             {!show && (
-              <Text className="text-md font-semibold">
-                {t("name")}: {personDetails.name}
-              </Text>
+              <>
+                <Text className="text-md font-semibold">
+                  {t("Oname")}: {personDetails.name}
+                </Text>
+                <Text className="text-md font-semibold">
+                  {t("nic2")}: {personDetails.nic}
+                </Text>
+              </>
             )}
-            {!show && (
+            {/* {!show && (
               <Text className="text-xs font-thin">{t("details")} </Text>
-            )}
+            )} */}
 
             {show && (
               <View>
-                <Tag title={t("nic2")}> {personDetails.no}</Tag>
+                <Tag title={t("nic2")}> {personDetails.nic}</Tag>
                 <Tag title={t("name")}> {personDetails.name}</Tag>
-                <Tag title={t("sex")}> {personDetails.sex}</Tag>
+                <Tag title={t("sex")}> {personDetails.gender}</Tag>
                 <Tag title={t("DOB")}> {personDetails.dob}</Tag>
-                <Tag title={t("address")}> {personDetails.address}</Tag>
-                <Tag title={t("placeOfBirth")}> {personDetails.pob}</Tag>
-                <Tag title={t("DOI")}> {personDetails.doi}</Tag>
+                {/* <Tag title={t("address")}> {personDetails.address}</Tag> */}
+                {/* <Tag title={t("placeOfBirth")}> {personDetails.pob}</Tag> */}
+                <Tag title={t("reason")}>
+                  {" "}
+                  {personDetails.reasonForBeingWanted}
+                </Tag>
               </View>
             )}
           </View>
@@ -57,8 +89,7 @@ const WantedPersonDetails = ({ personDetails }) => {
           </View>
         </View>
       </TouchableWithoutFeedback>
+      {/* </View> */}
     </Card>
   );
 };
-
-export default WantedPersonDetails;

@@ -1,11 +1,27 @@
 import { View, TouchableOpacity, Text, TextInput, Image } from "react-native";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+
 import { icons } from "../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const formfield = ({ label, placeholder, styles, onChangeText,icon }) => {
+const formfield = ({
+  label,
+  placeholder,
+  styles,
+  onChangeText,
+  icon,
+  autoFocus = false,
+}) => {
   const [focused, setFocused] = useState(false);
   const [showPassword, setshowPassword] = useState(false);
+  console.log("AUTO FOCUS", autoFocus);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // if (autoFocus) {
+    inputRef.current.focus();
+    // }
+  }, []);
 
   return (
     <>
@@ -14,9 +30,11 @@ const formfield = ({ label, placeholder, styles, onChangeText,icon }) => {
       >
         <View className="w-full h-12 px-4 bg-black-100 rounded-[50px] focus:border-secondary items-center flex-row">
           <TextInput
+            ref={inputRef}
             className={` text-lg  h-full w-full m-0 p-0 transition-all duration-[2000ms] ${styles?.label}`}
             placeholder={placeholder}
             onFocus={() => setFocused(true)}
+            autoFocus={autoFocus}
             // onEndEditing={() => setFocused(false)}
             placeholderTextColor="slategray"
             onChangeText={onChangeText}

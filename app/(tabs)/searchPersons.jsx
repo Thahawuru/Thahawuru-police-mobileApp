@@ -6,7 +6,6 @@ import WantedPersonDetails from "../../components/wallet/wantedPersonDetails";
 import { wantedPersons } from "../../api/wantedPersons";
 import Formfield from "../../components/formfield";
 import { useToastContext } from "@/hooks/useToastContext";
-import SearchFocus from "../../components/searchFocus";
 
 const profile = () => {
   const { personList, getList } = wantedPersons();
@@ -33,16 +32,13 @@ const profile = () => {
   return (
     <SafeAreaView>
       <View className="h-full min-h-screen w-screen  bg-[#fff] flex justify-start items-center gap-y-4">
-        <View className="w-full">
-          <Header title={"Wanted Persons"}></Header>
-        </View>
-        <View className="w-[90%] ">
-          <SearchFocus
+        <View className="w-[90%] py-5 ">
+          <Formfield
             label={"search"}
-            placeholder={"search wanted persons"}
+            placeholder={"search"}
             styles={{ container: "h-[45px] " }}
-            route={"/(tabs)/searchPersons"}
-          ></SearchFocus>
+            autoFocus={true}
+          ></Formfield>
         </View>
 
         <View className="w-[90%] mb-10 flex felx-col gap-2">

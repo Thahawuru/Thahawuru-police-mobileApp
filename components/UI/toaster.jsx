@@ -1,6 +1,10 @@
 import { useState, forwardRef, useImperativeHandle } from "react";
 import { View, Text } from "react-native";
-import Animated, { FadeInLeft, FadeInUp, FadeOutUp } from "react-native-reanimated";
+import Animated, {
+  FadeInLeft,
+  FadeInUp,
+  FadeOutUp,
+} from "react-native-reanimated";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const ToastMessage = forwardRef(
@@ -25,7 +29,6 @@ const ToastMessage = forwardRef(
         icon: "exclamation-triangle",
       },
     };
-    
 
     const showToast = () => {
       setIsVisible(true);
@@ -68,8 +71,9 @@ const ToastMessage = forwardRef(
             >
               <FontAwesome5 name={icon} size={17} color="#FFF" />
 
-              <Animated.View style={{ marginLeft: 8 }}
-               entering={FadeInLeft.delay(200)}
+              <Animated.View
+                style={{ marginLeft: 8 }}
+                entering={FadeInLeft.delay(200)}
               >
                 <Text
                   style={{ fontSize: 14, fontWeight: "600", color: "#FFF" }}

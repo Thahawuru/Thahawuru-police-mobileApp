@@ -6,7 +6,7 @@ import CustomButton from "../../components/UI/customButton";
 import CustomModal from "../../components/UI/modal";
 import { router } from "expo-router";
 import { useQr } from "@/api/useQr";
-import {useScanContext} from "@/hooks/useScanContext";
+import { useScanContext } from "@/hooks/useScanContext";
 
 export default function App() {
   const { getQrDetails } = useQr();
@@ -19,9 +19,7 @@ export default function App() {
   const [isloading, setIsloading] = useState(false);
   const [iserror, setIserror] = useState(false);
 
-  const {data,dispatch} = useScanContext();
-
-  
+  const { data, dispatch } = useScanContext();
 
   useEffect(() => {
     const getCameraPermissions = async () => {
@@ -42,15 +40,15 @@ export default function App() {
       try {
         const response = await getQrDetails(data);
         // setQrDetails(response.data.data);
-        if(response.status === 200){
+        if (response.status === 200) {
           setScannedData(`Verified Wallet Found!`);
           setIsloading(false);
           setIserror(false);
           setVerified(true);
           setScannedToken(data);
-          dispatch({type:"SCAN",payload:response.data.data.details});
-        }else{
-
+          // console.log("WANTED", response.data.data);
+          dispatch({ type: "SCAN", payload: response.data.data });
+        } else {
           setIserror(true);
           setScannedData(`No valid user found!`);
         }

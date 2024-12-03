@@ -12,6 +12,7 @@ import { AuthProvider } from "../context/authContext";
 import { ToastProvider } from "../context/toastContext";
 import { ScanProvider } from "../context/scanContext";
 import i18n from "../i18n";
+import { NavigationContainer } from "@react-navigation/native";
 
 library.add(fab, faSquareCheck);
 
@@ -39,16 +40,18 @@ export default function RootLayout() {
         <ToastProvider>
           <ScanProvider>
             <I18nextProvider i18n={i18n}>
-              <Stack screenOptions={{ headerShown: false }}>
-                <Stack.Screen
-                  name="index"
-                  options={{ headerShown: false }}
-                ></Stack.Screen>
-                <Stack.Screen
-                  name="(auth)"
-                  options={{ headerShown: false }}
-                ></Stack.Screen>
-              </Stack>
+              <NavigationContainer>
+                <Stack screenOptions={{ headerShown: false }}>
+                  <Stack.Screen
+                    name="index"
+                    options={{ headerShown: false }}
+                  ></Stack.Screen>
+                  <Stack.Screen
+                    name="(auth)"
+                    options={{ headerShown: false }}
+                  ></Stack.Screen>
+                </Stack>
+              </NavigationContainer>
             </I18nextProvider>
           </ScanProvider>
         </ToastProvider>

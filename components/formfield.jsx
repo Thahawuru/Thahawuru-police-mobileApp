@@ -14,14 +14,13 @@ const formfield = ({
 }) => {
   const [focused, setFocused] = useState(false);
   const [showPassword, setshowPassword] = useState(false);
-  console.log("AUTO FOCUS", autoFocus);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    // if (autoFocus) {
-    inputRef.current.focus();
-    // }
-  }, []);
+    if (autoFocus) {
+      inputRef.current.focus();
+    }
+  }, [autoFocus]);
 
   return (
     <>
@@ -34,7 +33,7 @@ const formfield = ({
             className={` text-lg  h-full w-full m-0 p-0 transition-all duration-[2000ms] ${styles?.label}`}
             placeholder={placeholder}
             onFocus={() => setFocused(true)}
-            autoFocus={autoFocus}
+            // autoFocus={autoFocus}
             // onEndEditing={() => setFocused(false)}
             placeholderTextColor="slategray"
             onChangeText={onChangeText}

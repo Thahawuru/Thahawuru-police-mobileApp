@@ -1,6 +1,13 @@
-import { View, Text, StatusBar, Image, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  StatusBar,
+  Image,
+  Keyboard,
+  TouchableOpacity,
+} from "react-native";
 import { useState, useEffect } from "react";
-import { Tabs, Redirect } from "expo-router";
+import { Tabs, Redirect, router } from "expo-router";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { icons } from "../../constants";
 // import { faHouse } from "@fortawesome/free-solid-svg-icons/faHouse";
@@ -201,24 +208,7 @@ const TabsLayout = () => {
             presentation: "modal",
           }}
         />
-        <Tabs.Screen
-          name="searchPersons"
-          options={{
-            title: "Search Wanted Person",
-            headerShown: true,
-            href: null,
-            presentation: "modal",
-          }}
-        />
-        <Tabs.Screen
-          name="searchVehicles"
-          options={{
-            title: "Search Vehicle",
-            headerShown: true,
-            href: null,
-            presentation: "modal",
-          }}
-        />
+
         <Tabs.Screen
           name="scanview/[id]"
           options={{
@@ -226,6 +216,40 @@ const TabsLayout = () => {
             headerShown: false,
             href: null,
             presentation: "modal",
+          }}
+        />
+
+        <Tabs.Screen
+          name="personDetails/[id]"
+          options={{
+            title: "Person Details",
+            headerShown: true,
+            href: null,
+            headerStyle: {
+              backgroundColor: "#001d3d",
+            },
+            headerTitleStyle: {
+              fontSize: 18,
+            },
+            headerTintColor: "#fff",
+            headerLeft: () => {
+              return (
+                <TouchableOpacity
+                  onPress={() => router.back()}
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    paddingHorizontal: 10,
+                  }}
+                >
+                  <MaterialCommunityIcons
+                    name="arrow-left"
+                    size={24}
+                    color="#fff"
+                  />
+                </TouchableOpacity>
+              );
+            },
           }}
         />
       </Tabs>

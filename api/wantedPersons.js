@@ -14,9 +14,18 @@ export const wantedPersons = () => {
     };
   };
 
-  const getList = async (data) => {
+  const getList = async () => {
     try {
       const response = await apiClient.get(`/wantedPerson`);
+      return response;
+    } catch (error) {
+      throw new Error(error.response.data.error.message);
+    }
+  };
+
+  const getPerson = async (id) => {
+    try {
+      const response = await apiClient.get(`/wantedPerson/${id}`);
       return response;
     } catch (error) {
       throw new Error(error.response.data.error.message);
@@ -25,5 +34,6 @@ export const wantedPersons = () => {
   return {
     getList,
     personList,
+    getPerson,
   };
 };

@@ -10,7 +10,7 @@ module.exports = {
         "primary-blue": "#0F0D4B",
         "secondry-blue":"#0F0D4B",
         "secondry-1":"#0F0D4B",
-        "secondry-2" :"#EBF5FF" 
+        "secondry-2" :"#EBF5FF", 
       },
     },
   },

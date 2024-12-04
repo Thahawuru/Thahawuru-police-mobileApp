@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 const officerDetails = ({officerDetails}) => {
   const {t} =useTranslation();
   const [show, setShow] = useState(false);
+  console.log("OFFICER DETAILS",officerDetails);
 
 
   return (
@@ -24,11 +25,11 @@ const officerDetails = ({officerDetails}) => {
 
             {show && (
               <View>
-                <Tag title={t("name")}> {officerDetails.name}</Tag>
-                <Tag title={t("station")}> {officerDetails.station}</Tag>
-                <Tag title={t("rank")}> {officerDetails.rank}</Tag>
-                <Tag title={t("mobile")}> {officerDetails.mobile}</Tag>
-                <Tag title={t("email")}> {officerDetails.email}</Tag>
+                <Tag title={t("Badge")}> {officerDetails?.police?.policeBadgeNumber}</Tag>
+                <Tag title={t("department")}> {officerDetails?.police?.department}</Tag>
+                <Tag title={t("rank")}> {officerDetails?.police?.rank}</Tag>
+                <Tag title={t("NIC")}> {officerDetails?.police?.nic}</Tag>
+                <Tag title={t("email")}> {officerDetails?.user?.email}</Tag>
               </View>
             )}
           </View>

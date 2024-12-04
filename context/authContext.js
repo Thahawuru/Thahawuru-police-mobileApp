@@ -9,7 +9,8 @@ const authReducer = (state, action) => {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload,
+        user: action.payload.user,
+        police: action.payload.police,
         loading: false,
       };
     case "LOGOUT":
@@ -17,6 +18,7 @@ const authReducer = (state, action) => {
         ...state,
         isAuthenticated: false,
         user: null,
+        police:null,
         loading: false,
       };
     case "LODING":
@@ -24,6 +26,7 @@ const authReducer = (state, action) => {
         ...state,
         isAuthenticated: false,
         user: null,
+        police:null,
         loading: true,
       };
     default:
@@ -34,6 +37,7 @@ const authReducer = (state, action) => {
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
+    police:null,
     isAuthenticated: false,
     loading: true,
   });
@@ -42,10 +46,11 @@ export const AuthProvider = ({ children }) => {
     const loadUser = async () => {
       try {
         const user = await AsyncStorage.getItem("user");
-        if (user) {
+        const police = await AsyncStorage.getItem("user");
+        if (user && police) {
           dispatch({
             type: "LOGIN",
-            payload: JSON.parse(user),
+            payload: {user:JSON.parse(user),police:JSON.parse(police)},
           });
         }else{
             dispatch({
